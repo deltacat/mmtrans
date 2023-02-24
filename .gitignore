@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+# others  
+.vscode/
+dist/
+out/
+*.log*
+tmp/
+temp/
+src/renderer/components.d.ts
