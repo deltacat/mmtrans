@@ -14,5 +14,5 @@ export function handleOpStore(_event, args) {
 }
 
 export function getSettings() {
-  return store.get('settings')
+  return store.get('settings') || {}
 }

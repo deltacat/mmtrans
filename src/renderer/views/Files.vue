@@ -133,6 +133,7 @@ fileProcessor.handleProgress((_event: any, arg: FileStatus) => {
   const workingFile = fileList.find(item => item.path == arg.path)
   workingFile.percentage = arg.percentage
   workingFile.status = arg.status
+  workingFile.err = arg.err
 })
 
 const removeOne = (idx: number) => fileList.splice(idx, 1)
