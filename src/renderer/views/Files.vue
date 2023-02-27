@@ -1,9 +1,14 @@
 <template>
   <el-container>
-    <el-header height="200px">
-      <el-upload drag multiple accept=".ncm" :auto-upload="false" :show-file-list="false" :on-change="handleChange">
-        <el-icon class="el-icon--upload"><upload-filled /></el-icon>
-        <div class="el-upload__text">拖拽文件或点击此处上传</div>
+    <el-header>
+      <el-upload height="150px" drag multiple accept=".ncm" :auto-upload="false" :show-file-list="false"
+        :on-change="handleChange">
+        <div class="text-add">
+          <el-icon class="icon-add">
+            <plus />
+          </el-icon>
+          <span>拖拽文件或点击此处添加</span>
+        </div>
       </el-upload>
     </el-header>
     <el-main>
@@ -60,7 +65,7 @@
 <script setup lang="ts">
 import type { UploadProps, UploadFile } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import { UploadFilled, SuccessFilled, Warning, Finished, CircleClose, Delete, RemoveFilled, CaretRight } from '@element-plus/icons-vue'
+import { Plus, SuccessFilled, Warning, Finished, CircleClose, Delete, RemoveFilled, CaretRight } from '@element-plus/icons-vue'
 import { reactive, toRaw, computed } from 'vue'
 import { fileProcessor } from '@r/utils/electronApi'
 import { formatFileSize } from '@r/utils/formatter'
@@ -165,6 +170,17 @@ const canProcess = computed(() => hasUnFinished.value)
 </script>
 
 <style scoped>
+.icon-add {
+  font-size: 2rem;
+  margin: 0 12px;
+}
+
+.text-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .files {
   width: 100%;
   padding: 0;
@@ -174,6 +190,10 @@ const canProcess = computed(() => hasUnFinished.value)
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+:deep(.el-upload-dragger) {
+  padding: 16px !important;
 }
 
 :deep(.el-progress-bar .el-progress-bar__innerText) {

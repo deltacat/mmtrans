@@ -40,24 +40,25 @@ function apply() {
     <el-main>
       <el-form label-width="88px">
         <el-divider content-position="left" border-style="dashed">输出</el-divider>
-        <el-form-item label="保存位置">
-          <el-input placeholder="Please input" v-model="settings.outputPath">
+        <el-form-item label="保存位置" required>
+          <el-input placeholder="选择出产保存路径" v-model="settings.outputPath">
             <template #append>
               <el-button :icon="Folder" @click="openDlg" />
             </template>
           </el-input>
         </el-form-item>
         <el-divider content-position="left" border-style="dashed">ncm</el-divider>
-        <el-form-item label="core key">
-          <el-input type="password" placeholder="Please input" v-model="settings.ncmCoreKey">
+        <el-form-item label="core key" required>
+          <el-input type="password" placeholder="请输入 ncm core key" v-model="settings.ncmCoreKey">
           </el-input>
         </el-form-item>
-        <el-form-item label="meta key">
-          <el-input type="password" placeholder="Please input" v-model="settings.ncmMetaKey">
+        <el-form-item label="meta key" required>
+          <el-input type="password" placeholder="请输入 ncm meta key" v-model="settings.ncmMetaKey">
           </el-input>
         </el-form-item>
         <el-divider content-position="left" border-style="dashed">功能</el-divider>
         <el-form-item label="开发者">
+          <!-- 模拟开关。开启后仅显示交互，不实际操作文件。 -->
           <el-checkbox v-model="settings.mock" label="模拟" border  />
         </el-form-item>
       </el-form>
