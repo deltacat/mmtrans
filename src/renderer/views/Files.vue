@@ -46,18 +46,23 @@
       </div>
     </el-main>
     <el-footer class="footer">
-      <el-button text size="small" :icon="Finished" type="success" @click="removeFinished" :disabled="!canClearFinished">
-        清除已完成
-      </el-button>
-      <el-button text size="small" :icon="RemoveFilled" type="danger" @click="removeAll" :disabled="!canClearAll">
-        全部移除
-      </el-button>
-      <el-button text size="small" :icon="CircleClose" type="warning" @click="cancelIt" :disabled="!busy">
-        取消
-      </el-button>
-      <el-button text size="small" :icon="CaretRight" type="primary" @click="doIt" :disabled="!canProcess">
-        执行操作
-      </el-button>
+      <div class="btn-group">
+        <el-button text size="small" :icon="Finished" type="success" @click="removeFinished"
+          :disabled="!canClearFinished">
+          移除已完成
+        </el-button>
+        <el-button text size="small" :icon="RemoveFilled" type="danger" @click="removeAll" :disabled="!canClearAll">
+          全部移除
+        </el-button>
+      </div>
+      <div class="btn-group">
+        <el-button text :icon="CircleClose" type="warning" @click="cancelIt" :disabled="!busy">
+          取消
+        </el-button>
+        <el-button text :icon="CaretRight" type="primary" @click="doIt" :disabled="!canProcess">
+          执行操作
+        </el-button>
+      </div>
     </el-footer>
   </el-container>
 </template>
@@ -215,5 +220,14 @@ const canProcess = computed(() => hasUnFinished.value)
 
 :deep(.el-table .cell) {
   padding: 0;
+}
+
+.btn-group .el-button {
+  padding: 6px 6px;
+  margin: 0;
+}
+
+.btn-group+.btn-group {
+  margin-left: 12px;
 }
 </style>
