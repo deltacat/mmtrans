@@ -1,15 +1,18 @@
 import Store from 'electron-store'
+import { sleep } from '../utils'
 
 const store = new Store()
 const storePath = store.path
 console.log('store path:', storePath)
 
-export function handleOpStore(_event, args) {
+export async function handleOpStore(_event, args) {
   switch (args.op) {
     case 'get':
       return store.get(args.key)
     case 'set':
-      return store.set(args.key, args.value)
+      await sleep(500) // 假装花了点时间
+      store.set(args.key, args.value)
+      return { message: args.key + ' saved' }
   }
 }
 

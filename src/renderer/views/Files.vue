@@ -13,7 +13,7 @@
     </el-header>
     <el-main>
       <div>
-        <el-table empty-text="未选择文件" :data="fileList" class="files" :show-header="false" :cell-style="{ padding: 0 }">
+        <el-table empty-text="尚未添加文件" :data="fileList" class="files" :show-header="false" :cell-style="{ padding: 0 }">
           <el-table-column label="名称">
             <template #default="scope">
               <el-progress :text-inside="true" :stroke-width="24" :percentage="scope.row.percentage">
@@ -60,7 +60,7 @@
           取消
         </el-button>
         <el-button text :icon="CaretRight" type="primary" @click="doIt" :disabled="!canProcess">
-          执行操作
+          执行
         </el-button>
       </div>
     </el-footer>

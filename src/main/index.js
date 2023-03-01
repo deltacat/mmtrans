@@ -3,6 +3,9 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import listener from './listener'
 import icon from '../../resources/icon.png?asset'
+import os from 'os'
+
+console.log(os.type(), os.release())
 
 function createWindow() {
   // Create the browser window.

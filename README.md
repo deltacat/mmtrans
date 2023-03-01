@@ -50,9 +50,22 @@ yarn build:mac
 yarn build:linux
 ```
 
+## WSL2
+
+```shell
+# 依赖的库文件
+sudo apt install libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev
+# 测试显示用的apps
+sudo apt install x11-apps
+```
+
+启动时可能会出现错误：`gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.`
+
+此情况可无视，也可通过关闭硬件加速(`app.disablehardwareacceleration()`)处理。(试过了，暂时无效)
+
 ## 参考资料
 
 - [Electron 官网](https://www.electronjs.org/zh/)
-- [electron-vite：新一代 Electron 开发利器](https://juejin.cn/post/7137987061176336397)
-- [从零开始捣鼓一个 Electron 应用](https://sumygg.com/2017/06/19/start-from-the-very-beginning-for-electron-with-element-ui-and-icon/)
+- [electron-vite：新一代 Electron 开发利器](https://juejin.cn/post/7137987061176336397)：本项目的启动脚手架来源
 - [淘宝镜像](http://npmmirror.com)
+- [Electron 关闭硬件加速](https://blog.csdn.net/qq_32660241/article/details/124737796)
